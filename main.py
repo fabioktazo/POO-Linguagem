@@ -49,4 +49,21 @@ class Cliente (Pessoa):
     avaliacao_restaurante = input (float ("DIGITE A AVALIAÇÃO DO RESTAURANTE (DE 0.0 a 5.0): "))
     return avaliacao_restaurante
 
-class Funcionario (Pessoa)
+class Funcionario (Pessoa):
+  def __init__ (self, data_admissao, cargo, cpf_funcionario, nome, contato, id, estrelas):
+    super().__init__(nome, contato, id, estrelas)
+    self.data_admissao = data_admissao
+    self.cargo = cargo
+    self. cpf_funcionario = cpf_funcionario
+  def liberar_pedido (self):
+    confirmar = input ("VOCÊ DESEJA CONFIRMAR O(S) PEDIDO(S)?")
+    if confirmar == "sim" or "SIM" or "Sim":
+      print("PEDIDO(S) CONFIRMADO(S) COM SUCESSO! AGRADECEMOS A PREFERÊNCIA.")
+      return True
+    else:
+      return False
+  def registrar_entrada (self):
+    print("ENTRAGA REGISTRADA COM SUCESSO!")
+  def registrar_saida (self):
+    print("SAÍDA REGISTRADA COM SUCESSO!")
+
