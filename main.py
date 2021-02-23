@@ -67,3 +67,83 @@ class Funcionario (Pessoa):
   def registrar_saida (self):
     print("SAÍDA REGISTRADA COM SUCESSO!")
 
+class Cardapio:
+  def __init__ (self):
+    self.cardapio = []
+  def exibir_cardapio (self):
+    self.cardapioescolha = ["SUSHI TRADICIONAL", "HOSOMAKI", "MAKIZUSHI", "TEMAKI", "URUMAKI", "NIGUIRI", "SASHIMI", "HOT FILADÉLFIA", "TEMPURÁ", "YAKISOBA TRADICIONAL", "YAKISOBA VEGANO", "HARUMAKI", "MOYASHI", "MOCHI", "MANJU"]
+
+    for x in range (len(self.cardapioescolha)):
+      print (x+1, "-", self.cardapioescolha[x])
+    print ("16 - ENCERRAR PEDIDOS E PROSSEGUIR")
+    a = input ("DIGITE O NÚMERO CORRESPONDENTE AO SEU PEDIDO (OBS.: VOCÊ PODERÁ ESCOLHER MAIS DE UM PEDIDO DESDE SELECIONE UM DE CADA VEZ): ")
+    if a == "1":
+      os.system('clear')
+      self.cardapioescolha.append(sushi_tradicional)
+      self.exibir_cardapio()
+    if a == "2":
+      os.system('clear')
+      self.cardapioescolha.append(hosomaki)
+      self.exibir_cardapio()
+    if a == "3":
+      os.system('clear')
+      self.cardapioescolha.append(makizushi)
+      self.exibir_cardapio()
+    if a == "4":
+      os.system('clear')
+      self.cardapioescolha.append(temaki)
+      self.exibir_cardapio()
+    if a == "5":
+      os.system('clear')
+      self.cardapioescolha.append(urumaki)
+      self.exibir_cardapio()
+    if a == "6":
+      os.system('clear')
+      self.cardapioescolha.append(niguiri)
+      self.exibir_cardapio
+    if a == "7":
+      os.system('clear')
+      self.cardapioescolha.append(sashimi)
+      self.exibir_cardapio()
+    if a == "8":
+      os.system('clear')
+      self.cardapioescolha.append(hot_filadelfia)
+      self.exibir_cardapio()
+    if a == "9":
+      os.system('clear')
+      self.cardapioescolha.append(tempura)
+      self.exibir_cardapio()
+    if a == "10":
+      os.system('clear')
+      self.cardapioescolha.append(yakisoba_tradicional)
+      self.exibir_cardapio()
+    if a == "11":
+      os.system('clear')
+      self.cardapioescolha.append(yakisoba_vegano)
+      self.exibir_cardapio
+    if a == "12":
+      os.system('clear')
+      self.cardapioescolha.append(harumaki)
+      self.exibir_cardapio()
+    if a == "13":
+      os.system('clear')
+      self.cardapioescolha.append(moyashi)
+      self.exibir_cardapio() 
+    if a == "14":
+      os.system('clear')
+      self.cardapioescolha.append(mochi)
+      self.exibir_cardapio() 
+    if a == "15:
+      os.system('clear')
+      self.cardapioescolha.append(manju)
+      self.exibir_cardapio() 
+    elif a == "16":
+      os.system('clear')
+      menu = Menu()
+      menu.remover_produto_cardapio()
+    else:
+      os.system('clear')
+      print("ERRO")
+      self.exibir_cardapio() 
+global cardapio
+
