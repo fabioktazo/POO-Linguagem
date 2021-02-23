@@ -1,8 +1,14 @@
+#Trabalho de POO e Linguagem de Programação (4º bimestre)
+#Alunos: Fabio Koiti Tazo
+#        Giovanna de Souza Régis
+#        Letícia Sophia Rodrigues da Silva
+#2º ano Técnico em Informática Matutino Integrado
+
 import os
 import sys
 
 class Pessoa:
-  def __initt__ (self, nome, contato, id, estrelas):
+  def __init__ (self, nome, contato, id, estrelas):
     self.nome = nome
     self.contato = contato
     self.id =  id
@@ -32,8 +38,94 @@ class Cliente (Pessoa):
   def __init__ (self, nome, contato, id, estrelas, cpf):
     super().__init__(nome, contato, id, estrelas)
     self.cpf = cpf
-    endereco = Endereco()
+    endereco = Endereco("", "", "", "", "", "")
     forma_pagamento = 0
+  def cadastrar_cliente (self):
+    while True:
+      print("           1ª ETAPA: CADASTRO                ")
+      print("")
+      print("")
+      try:
+        self.nome = input ("DIGITE O SEU NOME COMPLETO: ")
+        for y in self.nome:
+          if y.isalpha()==False:
+            if "" not in y:
+              raise ValueError
+      except ValueError:
+        os.system('clear')
+        print ("POR FAVOR, DIGITE APENAS LETRAS. TENTE NOVAMENTE")
+        print ("")
+        cliente.cadastrar_cliente()
+        break
+      try:
+        self.contato = input ("DIGITE O SEU CONTATO: ")
+        for y in self.contato:
+          if y.isdigit()==False:
+            raise ValueError
+      except ValueError:
+        os.system('clear')
+        print ("NÚMERO DE TELEFONE INVÁLIDO! TENTE NOVAMENTE.")
+        print("")
+        cliente.cadastrar_cliente()
+        break
+      try:
+        self.logradouro = input ("DIGITE O SEU LOGRADOURO: ")
+        for y in self.logradouro:
+          if y.isalpha()==False:
+            if "" not in y:
+              raise ValueError
+      except ValueError:
+        os.system('clear')
+        print ("LOGRADOURO INVÁLIDO! TENTE NOVAMENTE.")
+        print ("")
+        cliente.cadastrar_cliente()
+        break
+      try:
+        self.numero = input ("DIGITE O NÚMERO DA SUA RESIDÊNCIA: ")
+        for y in self.numero:
+          if y.isdigit()==False:
+            raise ValueError
+      except ValueError:
+        os.system('clear')
+        print ("NÚMERO RESIDENCIAL INVÁLIDO! DIGITE APENAS NÚMEROS. TENTE NOVAMENTE.")
+        print ("")
+        cliente.cadastrar_cliente()
+        break
+      try: 
+        self.bairro = input ("DIGITE O SEU BAIRRO: ")
+        for y in self.bairro:
+          if y.isalpha()==False:
+            if "" not in y:
+              raise ValueError
+      except ValueError:
+        print ("DIGITE APENAS LETRAS! TENTE NOVAMENTE")
+        break
+      self.complemento = input ("DIGITE O COMPLEMENTO (OPCIONAL): ")
+      try:
+        self.cidade = input ("DIGITE O NOME DA SUA CIDADE: ")
+        for y in self.cidade:
+          if y.isalpha()==False:
+            if "" not in y:
+              raise ValueError
+      except ValueError:
+        os.system('clear')
+        print ("CIDADE INVÁLIDA! DIGITE APENAS LETRAS. TENTE NOVAMENTE.")
+        print("")
+        cliente.cadastrar_cliente()
+        break
+      try:
+        self.cep = input ("DIGITE O SEU CEP: ")
+        for y in self.cep:
+          if y.isdigit()==False:
+            raise ValueError
+      except ValueError:
+        os.system('clear')
+        print ("CEP INVÁLIDO! DIGITE APENAS NÚMEROS! TENTE NOVAMENTE.")
+        print ("")
+        cliente.cadastrar_cliente()
+        break
+      break
+    
   def cancelar_pedido(self):
     print ("SEU PEDIDO FOI CANCELADO COM SUCESSO!")
   def confirmar_pedido(self):
@@ -75,7 +167,6 @@ class Cardapio:
     self.cardapio = []
   def exibir_cardapio (self):
     self.cardapioescolha = ["SUSHI TRADICIONAL", "HOSOMAKI", "MAKIZUSHI", "TEMAKI", "URUMAKI", "NIGUIRI", "SASHIMI", "HOT FILADÉLFIA", "TEMPURÁ", "YAKISOBA TRADICIONAL", "YAKISOBA VEGANO", "HARUMAKI", "MOYASHI", "MOCHI", "MANJU"]
-
     for x in range (len(self.cardapioescolha)):
       print (x+1, "-", self.cardapioescolha[x])
     print ("16 - ENCERRAR PEDIDOS E PROSSEGUIR")
@@ -148,7 +239,10 @@ class Cardapio:
       os.system('clear')
       print("ERRO")
       self.exibir_cardapio() 
-global cardapio
+    global cardapio
+
+cardapio = Cardapio ()
+    
 
 class Carrinho:
   def __init__(self):
@@ -200,9 +294,12 @@ moyashi = Produtos(20.00, 13, True)
 mochi = Produtos(5.00, 14, False)
 manju = Produtos(6.00, 15, False)
 
+pessoa = Pessoa("","","","")
+cliente = Cliente("","","","","")
+
 while True:
     print("+++++++++++++++++++++++++++++++++++++++++++++++")
-    print("                   SUSHI OISHII                ")
+    print("                 SUSHI OISHII                  ")
     print("         o sushi mais oishii da cidade         ")
     print("+++++++++++++++++++++++++++++++++++++++++++++++")
     print("")
@@ -213,72 +310,16 @@ while True:
     resposta = input ("DIGITE O NÚMERO REFERENTE A OPÇÃO DESEJADA: ")
     if resposta == "1":
       os.system('clear')
-      print("           1ª ETAPA: CADASTRO                ")
-      print("")
-      print("")
-      try:
-        self.nome = input ("DIGITE O SEU NOME COMPLETO: ")
-        for y in self.nome:
-          if y.isalpha()==False:
-            if "" not in y:
-              raise ValueError
-      except ValueError:
-        print ("POR FAVOR, DIGITE APENAS LETRAS. TENTE NOVAMENTE")
-        break
-      try:
-        self.contato = input ("DIGITE O SEU CONTATO: ")
-        for y in self.contato:
-          if y.isnumm()==False:
-            raise ValueError
-      except ValueError:
-        print ("NÚMERO DE TELEFONE INVÁLIDO! TENTE NOVAMENTE.")
-        break
-      try:
-        self.logradouro = input ("DIGITE O SEU LOGRADOURO: ")
-        for y in self.logradouro:
-          if y.isalpha()==False:
-            raise ValueError
-      except ValueError:
-        print ("LOGRADOURO INVÁLIDO! TENTE NOVAMENTE.")
-        break
-      try:
-        self.numero = input ("DIGITE O NÚMERO DA SUA RESIDÊNCIA: ")
-        for y in self.numero:
-          if y.isnum()==False:
-            raise ValueError
-      except ValueError:
-          print ("NÚMERO RESIDENCIAL INVÁLIDO! TENTE NOVAMENTE.")
-          break
-      try: 
-        self.bairro = input ("DIGITE O SEU BAIRRO: ")
-        for y in self.bairro:
-          if y.isalpha()==False:
-            raise ValueError
-      except ValueError:
-        print ("DIGITE APENAS LETRAS! TENTE NOVAMENTE")
-      self.complemento = input ("DIGITE O COMPLEMENTO (OPCIONAL): ")
-      try:
-        self.cidade = input ("DIGITE O NOME DA SUA CIDADE: ")
-        for y in self.cidade:
-          if y.isalpha()==False:
-            raise ValueError
-      except ValueError:
-        print ("CIDADE INVÁLIDA! DIGITE APENAS NÚMEROS. TENTE NOVAMENTE.")
-      try:
-        self.cep = input ("DIGITE O SEU CEP: ")
-        for y in self.cep:
-          if y.isnum()==False:
-            raise ValueError
-      except ValueError:
-        print ("CEP INVÁLIDO! DIGITE APENAS NÚMEROS! TENTE NOVAMENTE.")
+      cliente.cadastrar_cliente()
       print ("")
       acao = input ("APÓS DIGITAR TODOS OS DADOS CORRETAMENTE, DIGITE 0 PARA PROSSEGUIR PARA A ESCOLHA DO(S) PRODUTO(S): ")
-      if acao == "1":
+      if acao == "0":
+        os.system('clear')
         print ("       2ª ETAPA: ESCOLHA DOS PRODUTOS     ")
         print ("")
         print ("")
-        try:
-          
+        cardapio.exibir_cardapio
+        print ("")
       else:
         print ("OPÇÃO INVÁLIDA!")
         sys.exit() 
