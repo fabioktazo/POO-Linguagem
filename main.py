@@ -147,3 +147,20 @@ class Cardapio:
       self.exibir_cardapio() 
 global cardapio
 
+class Carrinho:
+  def __init__(self):
+    self.id_venda = id_venda
+    self.cardapio = Cardapio()
+    self.endereco_entrega = Endereco()
+  def remover_produto(self):
+    produto = None
+  def cancelar_pedido(self):
+    print("PEDIDO CANCELADO!")
+  def confirmar_pedido1(self):
+    confirmacao1 = input ("VOCE DESEJA CONFIRMA O(S) SEU(S) PEDIDO(S)? ")
+    if confimacao1 == "sim" or "SIM" or "Sim":
+      print("SEU PEDIDO FOI CONFIRMARDO! AGRADECEMOS A PREFERÊNCIA")
+      return True
+    else:
+      return False
+
