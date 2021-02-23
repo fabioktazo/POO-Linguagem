@@ -1,3 +1,6 @@
+import os
+import sys
+
 class Pessoa:
   def __initt__ (self, nome, contato, id, estrelas):
     self.nome = nome
@@ -133,7 +136,7 @@ class Cardapio:
       os.system('clear')
       self.cardapioescolha.append(mochi)
       self.exibir_cardapio() 
-    if a == "15:
+    if a == "15":
       os.system('clear')
       self.cardapioescolha.append(manju)
       self.exibir_cardapio() 
@@ -197,3 +200,94 @@ moyashi = Produtos(20.00, 13, True)
 mochi = Produtos(5.00, 14, False)
 manju = Produtos(6.00, 15, False)
 
+while True:
+    print("+++++++++++++++++++++++++++++++++++++++++++++++")
+    print("                   SUSHI OISHII                ")
+    print("         o sushi mais oishii da cidade         ")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++")
+    print("")
+    print("")
+    print("")
+    print("")
+    print("1-FAZER PEDIDO \n2-SAIR DO SISTEMA")
+    resposta = input ("DIGITE O NÚMERO REFERENTE A OPÇÃO DESEJADA: ")
+    if resposta == "1":
+      os.system('clear')
+      print("           1ª ETAPA: CADASTRO                ")
+      print("")
+      print("")
+      try:
+        self.nome = input ("DIGITE O SEU NOME COMPLETO: ")
+        for y in self.nome:
+          if y.isalpha()==False:
+            if "" not in y:
+              raise ValueError
+      except ValueError:
+        print ("POR FAVOR, DIGITE APENAS LETRAS. TENTE NOVAMENTE")
+        break
+      try:
+        self.contato = input ("DIGITE O SEU CONTATO: ")
+        for y in self.contato:
+          if y.isnumm()==False:
+            raise ValueError
+      except ValueError:
+        print ("NÚMERO DE TELEFONE INVÁLIDO! TENTE NOVAMENTE.")
+        break
+      try:
+        self.logradouro = input ("DIGITE O SEU LOGRADOURO: ")
+        for y in self.logradouro:
+          if y.isalpha()==False:
+            raise ValueError
+      except ValueError:
+        print ("LOGRADOURO INVÁLIDO! TENTE NOVAMENTE.")
+        break
+      try:
+        self.numero = input ("DIGITE O NÚMERO DA SUA RESIDÊNCIA: ")
+        for y in self.numero:
+          if y.isnum()==False:
+            raise ValueError
+      except ValueError:
+          print ("NÚMERO RESIDENCIAL INVÁLIDO! TENTE NOVAMENTE.")
+          break
+      try: 
+        self.bairro = input ("DIGITE O SEU BAIRRO: ")
+        for y in self.bairro:
+          if y.isalpha()==False:
+            raise ValueError
+      except ValueError:
+        print ("DIGITE APENAS LETRAS! TENTE NOVAMENTE")
+      self.complemento = input ("DIGITE O COMPLEMENTO (OPCIONAL): ")
+      try:
+        self.cidade = input ("DIGITE O NOME DA SUA CIDADE: ")
+        for y in self.cidade:
+          if y.isalpha()==False:
+            raise ValueError
+      except ValueError:
+        print ("CIDADE INVÁLIDA! DIGITE APENAS NÚMEROS. TENTE NOVAMENTE.")
+      try:
+        self.cep = input ("DIGITE O SEU CEP: ")
+        for y in self.cep:
+          if y.isnum()==False:
+            raise ValueError
+      except ValueError:
+        print ("CEP INVÁLIDO! DIGITE APENAS NÚMEROS! TENTE NOVAMENTE.")
+      print ("")
+      acao = input ("APÓS DIGITAR TODOS OS DADOS CORRETAMENTE, DIGITE 0 PARA PROSSEGUIR PARA A ESCOLHA DO(S) PRODUTO(S): ")
+      if acao == "1":
+        print ("       2ª ETAPA: ESCOLHA DOS PRODUTOS     ")
+        print ("")
+        print ("")
+        try:
+          
+      else:
+        print ("OPÇÃO INVÁLIDA!")
+        sys.exit() 
+    if resposta == "2":
+      os.system('clear')
+      print ("SISTEMA ENCERRADO! AGRADECEMOS O INTERESSE.")
+      sys.exit()
+    
+      
+        
+
+    
