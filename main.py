@@ -165,6 +165,13 @@ class Funcionario (Pessoa):
 class Cardapio:
   def __init__ (self):
     self.cardapio = []
+  def remover_produto_cardapio(self):
+    total = 0
+    for x in range (len(self.cardapio.cardapioescolha)):
+      total = total+self.cardapio[x].cardapioescolha.preco_produto
+    os.system('clear')
+    print ("O TOTAL DA SUA COMPRA É R$: ", total)
+    print ("AGRADECEMOS A PREFERÊNCIA!")
   def exibir_cardapio (self):
     self.cardapioescolha = ["SUSHI TRADICIONAL", "HOSOMAKI", "MAKIZUSHI", "TEMAKI", "URUMAKI", "NIGUIRI", "SASHIMI", "HOT FILADÉLFIA", "TEMPURÁ", "YAKISOBA TRADICIONAL", "YAKISOBA VEGANO", "HARUMAKI", "MOYASHI", "MOCHI", "MANJU"]
     for x in range (len(self.cardapioescolha)):
@@ -194,7 +201,7 @@ class Cardapio:
     if a == "6":
       os.system('clear')
       self.cardapioescolha.append(niguiri)
-      self.exibir_cardapio
+      self.exibir_cardapio()
     if a == "7":
       os.system('clear')
       self.cardapioescolha.append(sashimi)
@@ -214,7 +221,7 @@ class Cardapio:
     if a == "11":
       os.system('clear')
       self.cardapioescolha.append(yakisoba_vegano)
-      self.exibir_cardapio
+      self.exibir_cardapio()
     if a == "12":
       os.system('clear')
       self.cardapioescolha.append(harumaki)
@@ -233,13 +240,12 @@ class Cardapio:
       self.exibir_cardapio() 
     elif a == "16":
       os.system('clear')
-      menu = Menu()
-      menu.remover_produto_cardapio()
+      cardapio.remover_produto_cardapio()
     else:
       os.system('clear')
       print("ERRO")
       self.exibir_cardapio() 
-    global cardapio
+    
 
 cardapio = Cardapio ()
     
@@ -318,7 +324,7 @@ while True:
         print ("       2ª ETAPA: ESCOLHA DOS PRODUTOS     ")
         print ("")
         print ("")
-        cardapio.exibir_cardapio
+        cardapio.exibir_cardapio()
         print ("")
       else:
         print ("OPÇÃO INVÁLIDA!")
